@@ -20,6 +20,7 @@ async function getWeatherData(): Promise<void> {
     const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&units=metric&appid=${API_KEY}`);
     
     const data = {
+      weather: res.data.weather[0].main,
       temp: res.data.main.temp,
       sens_term: res.data.main.feels_like,
       umid: res.data.main.humidity,
@@ -36,7 +37,7 @@ async function getWeatherData(): Promise<void> {
       },
     });
   } catch (error) {
-    console.error('Error fetching weather data:', error);
+    console.log('Error fetching weather data:', error);
   }
 }
 
