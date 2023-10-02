@@ -21,6 +21,7 @@ async function getWeatherData(): Promise<void> {
     
     const data = {
       weather: res.data.weather[0].main,
+      weather_icon: res.data.weather[0].icon,
       temp: res.data.main.temp,
       sens_term: res.data.main.feels_like,
       umid: res.data.main.humidity,
